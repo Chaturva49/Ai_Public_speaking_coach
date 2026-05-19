@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  
+  --color-gray-900: #111111;
+  --color-gray-800: #222222;
+  --color-gray-700: #333333;
+  --color-gray-600: #444444;
+  --color-gray-500: #666666;
+  --color-gray-400: #999999;
+  --color-gray-300: #cccccc;
+  --color-gray-200: #dddddd;
+  --color-gray-100: #eeeeee;
+  --color-gray-50: #f8f8f8;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .clean-card {
+    @apply bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-gray-200 dark:border-slate-700 shadow-sm rounded-2xl transition-all;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .clean-focus {
+    @apply focus:outline-none focus:ring-4 focus:ring-black dark:focus:ring-white focus:ring-offset-2 dark:focus:ring-offset-black;
+  }
+}
+
+body {
+  @apply bg-white dark:bg-black text-black dark:text-white antialiased font-sans min-h-screen transition-colors duration-200;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight text-black dark:text-white;
+}
+
+strong {
+  @apply font-bold text-black dark:text-white;
+}
